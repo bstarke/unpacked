@@ -1,0 +1,11 @@
+security.provider.1=org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider
+security.provider.2=org.bouncycastle.jsse.provider.BouncyCastleJsseProvider fips:BCFIPS
+security.provider.3=sun.security.provider.Sun
+security.provider.4=
+
+ssl.KeyManagerFactory.algorithm=PKIX
+ssl.TrustManagerFactory.algorithm=PKIX
+
+keystore.type=pkcs12
+truststore.type=pkcs12
+ssl.keystore.type=pkcs12

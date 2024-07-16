@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: unpacked
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
