@@ -1,15 +1,24 @@
-import org.springframework.boot.loader.tools.LoaderImplementation
-
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.2.7'
     id 'io.spring.dependency-management' version '1.1.5'
+    id 'distribution'
+    id 'application'
 }
 
 group = 'net.starkenberg.junk'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = "17"
-targetCompatibility = "17"
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+mainClassName = 'net.starkenberg.junk.unpacked.UnpackedApplication'
+bootJar.enabled = false
+bootDistTar.enabled = false
+bootDistZip.enabled = false
+distTar.enabled = false
 
 repositories {
     mavenLocal()
@@ -29,10 +38,4 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
-}
-
-bootJar {
-    loaderImplementation = LoaderImplementation.CLASSIC
-    requiresUnpack '**/bctls-fips-*.jar'
-    requiresUnpack '**/bc-fips-*.jar'
 }

@@ -1,0 +1,36 @@
+[_]
+schema-version = "0.2"
+id = "mil.army.futures.swf"
+name = "firewire"
+version = "1.0.0"
+
+[io.buildpacks]
+builder = "paketobuildpacks/builder-jammy-base"
+exclude = [
+    "README.md"
+]
+
+[[io.buildpacks.group]]
+uri = "paketo-buildpacks/java"
+
+[[io.buildpacks.build.env]]
+name = "BP_GRADLE_BUILT_ARTIFACT"
+value = "build/distributions/*.zip"
+[[io.buildpacks.build.env]]
+name = "BP_GRADLE_BUILD_ARGUMENTS"
+value = "build distZip"
+[[io.buildpacks.build.env]]
+name = "BP_JVM_VERSION"
+value = "17"
+[[io.buildpacks.build.env]]
+name = "BP_JAVA_INSTALL_NODE"
+value = "true"
+[[io.buildpacks.build.env]]
+name = "BP_NODE_VERSION"
+value = "20"
+[[io.buildpacks.build.env]]
+name = "BP_NODE_PROJECT_PATH"
+value = "frontend"
+[[io.buildpacks.build.env]]
+name = "YARN_PRODUCTION"
+value = "false"
